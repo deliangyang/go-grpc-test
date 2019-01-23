@@ -1,0 +1,20 @@
+{
+    "name": "administrator/proto",
+    "authors": [
+        {
+            "name": "ydl",
+            "email": "yangdeliang@juwang.cn"
+        }
+    ],
+    "require": {
+        "grpc/grpc": "^1.15",
+        "google/protobuf": "v3.6.1.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hello\\": "./Hello",
+            "GPBMetadata\\": "./GPBMetadata",
+            "Client\\": "./Client"
+        }
+    }
+}
