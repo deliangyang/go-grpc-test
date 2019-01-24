@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"github.com/deliangyang/tt2/conections"
 	"github.com/deliangyang/tt2/model"
 	pb "github.com/deliangyang/tt2/proto"
@@ -18,9 +19,9 @@ type server struct{}
 
 func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
 	id, _ := strconv.Atoi(in.Name)
-	product := model.Product{}
-	conections.DB.Where("user_id = ?", id).Find(&product)
-	return &pb.HelloReply{Message: product.Name}, nil
+	product, err := model.GetUserInfoByUserId(id)
+	fmt.Println(product)
+	return &pb.HelloReply{Message: product.Name}, err
 }
 
 func main() {
