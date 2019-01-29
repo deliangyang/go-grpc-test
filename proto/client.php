@@ -15,10 +15,9 @@ $client = new Hello('192.168.3.116:5000', [
 ]);
 
 $request = new \Hello\HelloRequest();
-$request->setName('11');
+$request->setName('1');
 
 list($replay, $status) = $client->SayHello($request)->wait();
-
 /**
  * @var $replay \Hello\HelloReply
  */
